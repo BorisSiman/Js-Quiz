@@ -7,7 +7,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <link rel="stylesheet" type ="text/css" href="style.css">
 </head>
-<body class="data-spy="scroll" data-target=".navbar" data-offset="50"">
+<body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -28,24 +28,26 @@
   </div>
 </nav>    
 <selection id="Home">
-<div class="container text-center"><h1>Welcome!</h1></div>
-<div class="container fluid">
+<div class="text-center"><h1>Welcome!</h1></div>
+<div class="container">
 <div class="jumbotron">
 <h1 class="text-center">JS Quiz</h1>
 <hr style="margin-bottom: 30px">
-<p id="question" class="Question bg-primary">What's the problem?</p>
+
+<p id="question" class="question bg-primary"></p>
 
     
 <div class="text-center">
-<button class="btn btn-primary btn-margin" id="answer0">Nothing</button>
-<button class="btn btn-primary btn-margin" id="answer1">You</button>
-<button class="btn btn-primary btn-margin" id="answer2">Me</button>
-<button class="btn btn-primary btn-margin" id="answer3">Them</button>
-</div>
+<label class="btn btn-lg btn-primary btn-margin"><input type="radio" name="option" value="1" /> <span id="ans1"></span></label>
+<label class="btn btn-lg btn-primary btn-margin"><input type="radio" name="option" value="2" /> <span id="ans2"></span></label>
+<label class="btn btn-lg btn-primary btn-margin"><input type="radio" name="option" value="3" /> <span id="ans3"></span></label>
+<label class="btn btn-lg btn-primary btn-margin"><input type="radio" name="option" value="4" /> <span id="ans4"></span></label>
 <hr style="margin-bottom: 30px">
-<footer id="progress">Question x of y</footer>    
-    
-
+    <button id="nextButton" class="btn btn-lg btn-primary" onclick="loadNext()">Next</button>
+    <button id="goAgain" class="btn btn-lg btn-primary">Restart</button>
+    <button id="finalScore" class="btn btn-lg btn-success">Final score!</button>
+</div>
+    <footer id="score"></footer>    
     
     
     
@@ -54,38 +56,9 @@
 </selection>
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+<script src="question.js"></script>   
+<script src="quiz-script.js"></script>
     
 </body>
 </html>
