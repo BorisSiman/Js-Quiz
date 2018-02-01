@@ -2,29 +2,46 @@ var score = 0;
 var questionNum = 0;
 var totalQuestions = questions.length;
 
+var quizShow = document.getElementById("quiz");
 var questionSite = document.getElementById("question");
 var ans1 = document.getElementById("ans1");
 var ans2 = document.getElementById("ans2");
 var ans3 = document.getElementById("ans3");
 var ans4 = document.getElementById("ans4");
-var scoreSite = document.getElementById("score");
+var footerNum = document.getElementById("score");
+var scoreSite = 0;
 var scoreFinal = document.getElementById("finalPage");
 
+var startButton = document.getElementById("startButton");
 var nextButton = document.getElementById("nextButton");
 var restartButton = document.getElementById("goAgain");
 var finalButton = document.getElementById("finalScore");
 
 restartButton.style.display = 'none';
 finalButton.style.display = 'none';
+quizShow.style.display = 'none';
+
+startButton.addEventListener("click", startQuiz)
+
+function startQuiz(){
+questionLoad(questionNum);
+quizShow.style.display = '';
+startButton.style.display = 'none';
+document.getElementById("welcome").style.display = 'none';
+
+}
 
 function questionLoad(questNum){
+    if(footerNum == 6){
+        footerNum = 0;
+    }
     var q = questions[questNum];
     questionSite.textContent = (questNum + 1) + '.' + q.question;
     ans1.textContent = q.answer1;
     ans2.textContent = q.answer2;
     ans3.textContent = q.answer3;
     ans4.textContent = q.answer4;
-    scoreSite.textContent = (questionNum+1) + ' of ' + totalQuestions;
+    footerNum.textContent = (questionNum+1) + ' of ' + totalQuestions;    
 };
 
 function loadNext(){
@@ -69,5 +86,3 @@ function loadNext(){
     
     questionLoad(questionNum);
 }
-
-questionLoad(questionNum);
