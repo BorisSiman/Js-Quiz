@@ -1,5 +1,6 @@
 body{
-    background-image:url(https://image.shutterstock.com/z/stock-vector-question-mark-sign-icon-help-speech-bubble-symbol-faq-sign-seamless-grid-lines-texture-cells-188412224.jpg)
+    background-image:url(https://image.shutterstock.com/z/stock-vector-question-mark-sign-icon-help-speech-bubble-symbol-faq-sign-seamless-grid-lines-texture-cells-188412224.jpg);
+    font-family: Wendy One;
 }
 
 .question{
@@ -7,14 +8,27 @@ body{
     margin-bottom: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
-   
     border-style: solid;
     border-width: 10px;
-    border-color: lightcoral;
+    border-color: darkslateblue;
+    border-radius: 20px;
     color:aliceblue;
     text-align: center;
+    background-color: #428bca;
+    color: darkslateblue;
 }
 .btn-margin{
     margin-right: 20px;
     margin-top:20px;
+}
+
+hr{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #428bca;
+    height: 4px;
+    
+}
+footer {
+    text-align: right;
 }
