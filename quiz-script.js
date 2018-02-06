@@ -1,6 +1,7 @@
 var score = 0;
 var questionNum = 0;
 var totalQuestions = questions.length;
+var wrong = new Array();
 
 var quizShow = document.getElementById("quiz"); //quizContainer
 var questionSite = document.getElementById("question"); //questionContainer
@@ -57,6 +58,7 @@ function loadNext(){
         restartFinal.style.display = 'none';
         document.getElementById("lineShow").style.display = 'none';
         questionLoad(questionNum);
+        wrong = [];
     }
 
     function finalScore(){
@@ -65,13 +67,15 @@ function loadNext(){
         restartFinal.style.display = '';
         document.getElementById("lineShow").style.display = '';
         var newline = "<br/>";
-        scoreFinal.innerHTML = "Your score is: " + score + "." + newline + "That is: " +((score/totalQuestions) * 100) + "%. " + newline + "You had " +(totalQuestions-score) + " incorrect answers!" +newline;
-        
+        scoreFinal.innerHTML = "Your score is: " + score + "." + newline + "That is: " +((score/totalQuestions) * 100) + "%. " + newline + "You had " + wrong.length + " incorrect answers!" +newline + "Your answer was wrong on question:" + newline;
+        for(var i = 0; i<wrong.length; i++){
+            scoreFinal.innerHTML += questions[wrong[i]].question + newline;
+        }
         if(score == 10){
             scoreFinal.innerHTML += "Your genious! Congratulations!";
         }
         if(score <= 9 && score > 6){
-            scoreFinal.innerHTML += "Your good, but not the best!";
+            scoreFinal.innerHTML += "Your good, but not the best! Try again now when u know what you did wrong.";
         }
         if(score <=6){
             scoreFinal.innerHTML += "Try again, you need more practice!";
@@ -86,6 +90,10 @@ function loadNext(){
     var answer = selected.value;
     if(questions[questionNum].answer == answer){
         score +=1;
+    }
+    if(questions[questionNum].answer != answer){
+        wrong.push(questionNum);
+        console.log(wrong);
     }
     selected.checked = false;
     questionNum++;
