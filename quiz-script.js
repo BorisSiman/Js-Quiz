@@ -67,7 +67,14 @@ function loadNext(){
         restartFinal.style.display = '';
         document.getElementById("lineShow").style.display = '';
         var newline = "<br/>";
-        scoreFinal.innerHTML = "Your score is: " + score + "." + newline + "That is: " +((score/totalQuestions) * 100) + "%. " + newline + "You had " + wrong.length + " incorrect answers!" +newline + "Your answer was wrong on question:" + newline;
+        scoreFinal.innerHTML = "Your score is: " + score + "." + newline + "That is: " +((score/totalQuestions) * 100) + "%. " + newline + "You had " + wrong.length + " incorrect answers!" +newline;
+        
+        if(score == 10){
+        scoreFinal.innerHTML += "That's incredible!" + newline;
+        }
+        else{
+        scoreFinal.innerHTML += "Your answer was wrong on question:" + newline;
+        }
         for(var i = 0; i<wrong.length; i++){
             scoreFinal.innerHTML += questions[wrong[i]].question + newline;
         }
